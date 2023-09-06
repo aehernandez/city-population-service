@@ -1,8 +1,10 @@
-## Run
+## Usage
 
-Use `npm run start` to run the server.
-Use `npm run test` to run unit tests.
-Use `npm run benchmark` to run the benchmarking tool. Note, the server must be running.
+`npm run start` to run the server.
+
+`npm run test` to run unit tests.
+
+`npm run benchmark` to run the benchmarking tool. Note, the server must be running.
 
 Additionally, you may manually run the server with the following command:
 
