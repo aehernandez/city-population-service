@@ -70,7 +70,7 @@ class PopulationManager {
    * @return {number|undefined}
    */
   async get(city, state) {
-    const key = toKey(city, state);
+    const key = toKey(state, city);
     return await this.memory_.get(key);
   }
 
@@ -81,7 +81,7 @@ class PopulationManager {
    * @param {number} population
    */
   async set(city, state, population) {
-    const key = toKey(city, state);
+    const key = toKey(state, city);
     this.set_(key, population);
   }
 
