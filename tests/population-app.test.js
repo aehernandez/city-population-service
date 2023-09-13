@@ -84,3 +84,27 @@ it('tests adding existing city', async () => {
   expect(response.statusCode).toBe(200);
   expect(JSON.parse(response.body)).toMatchObject({population: 200});
 });
+
+it('tests city / state mixing', async () => {
+  const app = build();
+
+  const state = 'alabama';
+  const city = 'huntsville';
+  const population = 100;
+
+  await manager.set(city, state, population);
+
+  let response = await app.inject({
+    method: 'GET',
+    url: `/api/population/state/${state}/city/${city}`,
+  });
+
+  expect(response.statusCode).toBe(200);
+  expect(JSON.parse(response.body)).toMatchObject({population});
+
+  response = await app.inject({
+    method: 'GET',
+    url: `/api/population/state/${city}/city/${state}`,
+  });
+  expect(response.statusCode).toBe(400);
+});
