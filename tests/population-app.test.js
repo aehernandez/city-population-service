@@ -8,7 +8,7 @@ import populationManagerFactory from '#src/components/population-manager.js';
 
 const manager = await populationManagerFactory();
 
-afterEach(() => {
+beforeEach(() => {
   return manager.clear();
 });
 
